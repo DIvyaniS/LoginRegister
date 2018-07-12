@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UserController {
 	Principal principal;
+	@Autowired
+	private User user;
     @Autowired
     private UserService userService;
     @Autowired
@@ -105,7 +107,7 @@ public class UserController {
     
     @RequestMapping(value = "/addmoney", method = RequestMethod.GET)
     public String viewAddMoneyPage(Model model) {
-    	model.addAttribute("balance");
+    	//model.addAttribute("balance");
         
  
         
@@ -128,5 +130,12 @@ public class UserController {
 
         return "redirect:/welcome";
     }
-    
+    @RequestMapping(value="/checkbal",method = RequestMethod.GET)
+    public String viewCheckBalancePage(Model model)
+    {
+    	user = userService.findByUsername(principal.getName());
+    	model.addAttribute("balance",user.getBalance().toString());
+    	return "checkbal";
+    	
+    }
 }
