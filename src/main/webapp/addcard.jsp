@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Create an account</title>
+    <title>Add card to Wallet</title>
 
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
@@ -30,28 +30,11 @@
 
 <div class="container">
 
-    <form:form method="POST" modelAttribute="sendForm" class="form-sendmoney">
-        <h2 class="form-sendmoney-heading">Send Money</h2>
-        <spring:bind path="toUser">
-          <!--   <div class="form-group ${status.error ? 'has-error' : ''}"> -->
-                <form:input type="text" path="toUser" class="form-control" placeholder="toUser"
-                            autofocus="true"></form:input>
-                <form:errors path="toUser"></form:errors>
-            </div>
-        </spring:bind>
-
-       
-
-        <spring:bind path="amount">
-           <!--  <div class="form-group ${status.error ? 'has-error' : ''}"> -->
-                <form:input type="number" path="amount" class="form-control"
-                            placeholder="Amount to be sent"></form:input>
-                <form:errors path="amount"></form:errors>
-            </div>
-        </spring:bind>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
-    </form:form>
+    <form method="post">
+        Bank : <input type="text" name="bank" />
+        card no. : <input type="text" name="card" /> 
+        <input type="submit" value="ADD"/>
+    </form>
 
 </div>
 <!-- /container -->

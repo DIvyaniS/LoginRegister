@@ -9,21 +9,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sendmoney")
 public class SendMoney {
-	public SendMoney() {
-		super();
-	}
-	public SendMoney( String toUser, Long amount) {
-		super();
-		
-		this.toUser = toUser;
-		this.amount = amount;
-	}
-	private int Tid;
 	
-	
+	private Long tId;
 	private String toUser;
 	private Long amount;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getTId() {
+		return tId;
+	}
 	public String getToUser() {
 		return toUser;
 	}
@@ -36,13 +31,18 @@ public class SendMoney {
 	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	public int getTid() {
-		return Tid;
+	
+	public void setTId(Long tId) {
+		tId = tId;
 	}
-	public void setTid(int tid) {
-		Tid = tid;
+	public SendMoney() {
+		super();
+	}
+	public SendMoney( String toUser, Long amount) {
+		super();
+		
+		this.toUser = toUser;
+		this.amount = amount;
 	}
 	
 

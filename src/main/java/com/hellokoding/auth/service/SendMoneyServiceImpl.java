@@ -11,6 +11,9 @@ public class SendMoneyServiceImpl implements SendMoneyService{
 		@Override
 		public void save(SendMoney sendMoney)
 		{
+			//sendMoneyRepository.save(sendMoney);
+			sendMoney.setAmount(sendMoney.getAmount());
+			sendMoney.setToUser(sendMoney.getToUser());
 			sendMoneyRepository.save(sendMoney);
 		}
 

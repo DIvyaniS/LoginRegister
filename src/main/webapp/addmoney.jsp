@@ -30,27 +30,11 @@
 
 <div class="container">
 
-    <form:form method="POST" modelAttribute="addform" class="form-addmoney">
-        <h2 class="form-addmoney-heading">Add money to your account</h2>
-        <spring:bind path="balance">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="balance" name = "balance" class="form-control" placeholder="balance"
-                            autofocus="true"></form:input>
-                <form:errors path="balance"></form:errors>
-            </div>
-        </spring:bind>
-
-        <spring:bind path="card">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="card" name="card" class="form-control" placeholder="Card"></form:input>
-                <form:errors path="card"></form:errors>
-            </div>
-        </spring:bind>
-
-        
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">ADD</button>
-    </form:form>
+    <form method="post">
+        amount : <input type="text" name="amount" />
+        card no. : <input type="text" name="card" /> 
+        <input type="submit" value="ADD"/>
+    </form>
 
 </div>
 <!-- /container -->
